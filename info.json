@@ -1,0 +1,5 @@
+{
+	"name":"Python 2.7.5",
+	"docsURL":"http://docs.python.org/2.7/archives/python-2.7.5-docs-html.zip",
+	"index":"output.json" //default is output.json
+}
