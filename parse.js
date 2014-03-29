@@ -4,7 +4,7 @@ var htmlparser = require('htmlparser2');
 var pyDocs = {
 	info: {
 		pages:'pages',
-		source:'python-2.7.5-docs-html/',
+		source:'python-2.7.6-docs-html/',
 		icons: { //if left empty, then use default ones
 			path:'python/resources/',
 			mainIcon:'python-logo.png',
@@ -197,7 +197,7 @@ var namesParser = new htmlparser.Parser({
 	}
 });
 
-fs.readdir(__dirname + '/python-2.7.5-docs-html/library/', docIndexRead);
+fs.readdir(__dirname + '/python-2.7.6-docs-html/library/', docIndexRead);
 
 function docIndexRead(err, files) {
 	if (err) {
@@ -230,7 +230,7 @@ function docIndexRead(err, files) {
 	// indexParser.end();
 
 	for (var i in pyDocs.pages) {
-		var data = fs.readFileSync(__dirname + "/python-2.7.5-docs-html/" + i);
+		var data = fs.readFileSync(__dirname + "/python-2.7.6-docs-html/" + i);
 		namesParser._cbs.bhref = i;
 		namesParser.write(data);
 	}
@@ -292,18 +292,18 @@ function docIndexRead(err, files) {
 
 	pyDocs.docs.Attributes.sort(alphabeticallySort);
 
-	fs.readFileSync(__dirname + "/python-2.7.5-docs-html/_static/sidebar.js").toString().split('\n').forEach(function (line) {
+	fs.readFileSync(__dirname + "/python-2.7.6-docs-html/_static/sidebar.js").toString().split('\n').forEach(function (line) {
 		if (line.toString() == '  set_position_from_cookie();') {
-			fs.appendFileSync(__dirname + "/python-2.7.5-docs-html/_static/temp.js", line.toString() + "\n  collapse_sidebar();" + "\n");
+			fs.appendFileSync(__dirname + "/python-2.7.6-docs-html/_static/temp.js", line.toString() + "\n  collapse_sidebar();" + "\n");
 		}
 		else {
 			if (line.toString() !== '  collapse_sidebar();') {
-				fs.appendFileSync(__dirname + "/python-2.7.5-docs-html/_static/temp.js", line.toString() + "\n");
+				fs.appendFileSync(__dirname + "/python-2.7.6-docs-html/_static/temp.js", line.toString() + "\n");
 			}
 		}
 	});
-	fs.renameSync(__dirname + "/python-2.7.5-docs-html/_static/temp.js", __dirname + "/python-2.7.5-docs-html/_static/sidebar.js");
-	fs.writeFileSync(__dirname + '/output/pyDocs.json', JSON.stringify(pyDocs));
+	fs.renameSync(__dirname + "/python-2.7.6-docs-html/_static/temp.js", __dirname + "/python-2.7.6-docs-html/_static/sidebar.js");
+	fs.writeFileSync(__dirname + '/docs.json', JSON.stringify(pyDocs));
 }
 
 function alphabeticallySort(a,b){
@@ -311,6 +311,3 @@ function alphabeticallySort(a,b){
 	if (a[0] > b[0]) return 1;
 	return 0;
 }
-
-
-
