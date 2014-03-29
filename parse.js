@@ -213,7 +213,7 @@ function docIndexRead(err, files) {
 		Attributes:[],
 		Modules:[]
 	}; //disutils are irregular
-	
+
 	for (var i in files) {
 		pyDocs.pages['library/' + files[i]] = {
 			Exceptions:[],
@@ -248,31 +248,31 @@ function docIndexRead(err, files) {
 		for (j in pyDocs.pages[i].Classes) {
 			pyDocs.docs.Classes.push([pyDocs.pages[i].Classes[j][0], pyDocs.pages[i].Classes[j][1]]);
 		}
-		
+
 		pyDocs.pages[i].Functions.sort(alphabeticallySort);
 
 		for (j in pyDocs.pages[i].Functions) {
 			pyDocs.docs.Functions.push([pyDocs.pages[i].Functions[j][0], pyDocs.pages[i].Functions[j][1]]);
 		}
-		
+
 		pyDocs.pages[i].Methods.sort(alphabeticallySort);
 
 		for (j in pyDocs.pages[i].Methods) {
 			pyDocs.docs.Methods.push([pyDocs.pages[i].Methods[j][0], pyDocs.pages[i].Methods[j][1]]);
 		}
-		
+
 		pyDocs.pages[i].Constants.sort(alphabeticallySort);
 
 		for (j in pyDocs.pages[i].Constants) {
 			pyDocs.docs.Constants.push([pyDocs.pages[i].Constants[j][0], pyDocs.pages[i].Constants[j][1]]);
 		}
-		
+
 		pyDocs.pages[i].Attributes.sort(alphabeticallySort);
 
 		for (j in pyDocs.pages[i].Attributes) {
 			pyDocs.docs.Attributes.push([pyDocs.pages[i].Attributes[j][0], pyDocs.pages[i].Attributes[j][1]]);
 		}
-		
+
 		pyDocs.pages[i].Modules.sort(alphabeticallySort);
 
 		for (j in pyDocs.pages[i].Modules) {
@@ -303,7 +303,7 @@ function docIndexRead(err, files) {
 		}
 	});
 	fs.renameSync(__dirname + "/python-2.7.6-docs-html/_static/temp.js", __dirname + "/python-2.7.6-docs-html/_static/sidebar.js");
-	fs.writeFileSync(__dirname + '/docs.json', JSON.stringify(pyDocs));
+	fs.writeFileSync(__dirname + '/output.json', JSON.stringify(pyDocs));
 }
 
 function alphabeticallySort(a,b){
