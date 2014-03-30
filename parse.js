@@ -6,7 +6,7 @@ var pyDocs = {
 		pages:'pages',
 		source:'python-2.7.6-docs-html/',
 		icons: { //if left empty, then use default ones
-			path:'python/resources/',
+			path:'resources/',
 			mainIcon:'python-logo.png',
 			docsIcons: {
 				//if it is blank, assume that it is from one of the defaults ie modules ""
