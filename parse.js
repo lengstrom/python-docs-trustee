@@ -3,7 +3,7 @@ var htmlparser = require('htmlparser2');
 
 var pyDocs = {
 	info: {
-		name:"Python 2.6.7",
+		name:"Python 2.7.6",
 		source:'python-2.7.6-docs-html/',
 		icons: { //if left empty, then use default ones
 			path:'resources/',
